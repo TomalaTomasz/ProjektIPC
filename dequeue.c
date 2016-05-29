@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
 			bool = 0;
 		
 		//Sprawdzenie czy komunikat składa się ze znaków ASCII
-		int i;
+		int i=0;
 		if (bool)
 		{
 			while (msg.message[i] != '\0')
@@ -68,7 +68,8 @@ int main(int argc, char* argv[])
 			printf("\nPodany komunikat nie jest poprawny.\n");
 	}
 	else
-		printf("Nie ma weekendu więc nie odczytam wiadomości.");
+		printf("Nie ma weekendu więc nie odczytam wiadomości.\n");
 	
+	msgctl(msgID, IPC_RMID, NULL);
 	return 0;
 }
