@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
 	printf("Podaj komunikat do wysłania: ");
 	scanf("%s", msg.message);
 	msg.mtype = 1;
-	
+
 	size = sizeof msg.message;
 	
 	if ((key = ftok("./queue", 286257)) == -1)

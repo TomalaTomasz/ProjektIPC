@@ -2,6 +2,7 @@
 #include <sys/msg.h>
 #include <time.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 struct bufor 
 {
@@ -59,10 +60,13 @@ int main(int argc, char* argv[])
 				i++;
 			}
 		}
-		
+	
 		if (bool)
 		{
 			printf("Otrzymany komunikat: %s\n", msg.message);
+			msgctl(msgID, IPC_RMID, NULL);
+			execl("./aspell.sh", "./aspell.sh", msg.message, NULL);
+			
 		}
 		else
 			printf("\nPodany komunikat nie jest poprawny.\n");
